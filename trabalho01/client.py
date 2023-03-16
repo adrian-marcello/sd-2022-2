@@ -11,6 +11,9 @@ msg = ""
 while (msg != "SAIR"):
     msg = input()
     s.send(msg.encode())
-    data = s.recv(1024)
-    print("> SERVIDOR: "+data.decode())
+    if (msg != "SAIR"):
+        data = s.recv(1024)
+        print("> SERVIDOR: "+data.decode())
+    else:
+        break
 s.close()                              # Close the socket when done
