@@ -1,3 +1,4 @@
+# ÁDRIAN MARCELLO MENDES DIAS
 # servidor do socket
 
 import socket
@@ -11,16 +12,20 @@ s.listen(5)
 
 while True:
     
-    c, addr = s.accept()                # Establish connection with client.
+    c, addr = s.accept()             # Establish connection with client.
+    msg = ''
     try:
         print('Conexão estabelecida com: ', addr)
-        data = c.recv(1024)
-        while (data.decode != 'SAIR'):
-            if (data.decode == 'SAIR'):
+        
+
+        while (msg != 'SAIR'):
+            data = c.recv(1024)
+            msg = data.decode()
+            if (msg == 'SAIR'):
                 c.close()
                 break
             else:
-                print("> CLIENTE: "+data.decode())
+                print("> CLIENTE: "+msg)
                 c.send(input().encode())
     except:
         print('erro')
