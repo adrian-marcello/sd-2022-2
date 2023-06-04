@@ -3,6 +3,11 @@ import classes
 import asyncio
 import websockets
 
+BEBIDA = ['cerveja','refrigerante','suco','caipirinha']
+PRATOS = ['macarrão','carne','batata frita']
+SANDUICHES = ['x tudo','x ratão']
+SOBREMESA = ['pudim','sorvete']
+
 async def echo(websocket):
     print("Conectado")
     async for message in websocket:
